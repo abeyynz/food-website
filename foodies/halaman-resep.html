@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/lahaplogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Foodies</title>
+</head>
+<body>
+
+        <nav class="nav-bar">
+            <ul>
+                <li>
+                    <img style="margin: 10px; margin-top: 15; margin-left: 14px; margin-bottom:3px;" src="img/lahap.png" class="logo" alt="">
+                </li>
+                <li> 
+                    <div class="search-wrapper" style=" margin-left: -10px; ; background-color: beige; margin-top: 12px; ">
+                        <div class="fa fa-search" style="margin-left: 12px;"></div>
+                        <input type="text" name=""  id="search" placeholder="Resep apa yang kamu cari?" style="color: #9f4205;" onkeyup="search()">
+                        <div class="fa fa-times" style="margin-right: 5px; " onclick="clearInput()"></div>
+                    </div>
+                </li>
+            </ul>
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <div class="menu-bar">
+                <ul>
+                    <li><a href="baru.html">Beranda</a></li>
+                    <li><a href="halaman-resep.html">Resep</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+
+    <!-- Search Results -->
+        <div class="result">
+            <h1>Your Search Result: </h1>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="card-grid" >
+            <div class="food-list" id="food-list">
+                    <p id="none" style="display: none;">Maaf, Resep yang kamu cari tidak ada</p>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="img/Sisig.webp">
+                        </div>
+                        <div class="card-body">
+                            <h3> Iga Bakar </h3>
+                        </div>
+                        <div class="card-footer">
+                            <a href="resep1.html" class="btn" style="text-decoration: none;">Resep</a> 
+                        </div>
+                    </div>
+                    <div class="card card-shadow">
+                        <div class="card-header card-image">
+                            <img src="img/Adobo.webp">
+                        </div>
+                        <div class="card-body">
+                            <h3> Sapi Panggang </h3>
+                        </div>
+                        <div class="card-footer">
+                            <a href="resep2.html" class="btn" style="text-decoration: none;">Resep</a>
+                        </div>
+                    </div>
+                <div class="card card-shadow">
+                    <div class="card-header card-image">
+                        <img src="img/Porkchop.webp">
+                    </div>
+                    <div class="card-body">
+                        <h3 style="color: #fff;">Steak Kacang</h3>
+                    </div>
+                    <div class="card-footer">
+                        <a href="resep3.html" class="btn" style="text-decoration: none;">Resep</a>
+                    </div>
+                </div>
+                <div class="card card-shadow">
+                    <div class="card-header card-image">
+                        <img src="img/Omelette.webp">
+                    </div>
+                    <div class="card-body">
+                        <h3>Omelette</h3>
+                    </div>
+                    <div class="card-footer">
+                        <a href="resep1.html" class="btn" style="text-decoration: none;">Resep</a>
+                    </div>
+                </div>
+                <div class="card card-shadow">
+                    <div class="card-header card-image">
+                        <img src="img/Sinigang.webp">
+                    </div>
+                    <div class="card-body">
+                        <h3> Sup Ayam Asam </h3>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn" onclick="get5thRecipe()">Resep</button>
+                    </div>
+                </div>
+                <div class="card card-shadow">
+                    <div class="card-header card-image">
+                        <img src="img/Lumpia.webp">
+                    </div>
+                    <div class="card-body">
+                        <h3> Lumpia</h3>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn" onclick="get6thRecipe()">Resep</button>
+                    </div>
+                </div>
+                <div class="card card-shadow">
+                    <div class="card-header card-image">
+                        <img src="img/Longanisa.webp">
+                    </div>
+                    <div class="card-body">
+                        <h3>Sosis</h3>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn" onclick="get7thRecipe()">Resep</button>
+                    </div>
+                </div>
+                <div class="card card-shadow">
+                    <div class="card-header card-image">
+                        <img src="img/Burger.webp">
+                    </div>
+                    <div class="card-body">
+                        <h3>Chicken Burger</h3>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn" onclick="get8thRecipe()">Resep</button>
+                    </div>
+                </div>
+                <div class="card card-shadow">
+                    <div class="card-header card-image">
+                        <img src="img/Menudo.webp">
+                    </div>
+                    <div class="card-body">
+                        <h3>Semur Daging</h3>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn" onclick="get9thRecipe()">Resep</button>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <div class="hal" style="margin-top: -150px; margin-bottom: 50px; margin-left: 600px;">
+            <a href="halaman-resep.html" class="btn" style="text-decoration: none; width: 35px;">1</a>
+            <a href="halaman-resep2.html" class="btn" style="text-decoration: none; width: 35px;">2</a>
+        </div>
+
+            <!--Footer-->
+    <div class="footer">
+        <div class="social-btn" style="color: #fff;">
+            <a href="https://www.facebook.com/Cmedsss" target="_blank" ><i class="	fab fa-facebook" style="color: #fff;"></i></a>
+            <a href="https://www.instagram.com/tiaanmeds/" target="_blank" ><i class="	fab fa-instagram" style="color: #fff;"></i></a>
+            <a href="https://www.linkedin.com/in/tianmeds/" target="_blank"><i class="	fab fa-linkedin" style="color: #fff;"></i></a>
+            <a href="https://github.com/TianMeds" target="_blank" ><i class="	fab fa-github" style="color: #fff;"></i></a>
+        </div>
+            <div class="quick-bar">
+                <a href="index.html">Beranda</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        <p style="color: #fff;">Copyright &copy;  All right reserved</p>  
+    </div>
+
+    <!--Ending of Footer-->
+
+<!--Script for Javascript-->
+<script src="js/beranda.js"></script>
+</body>
+</html>

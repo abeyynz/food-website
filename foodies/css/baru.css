@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    height: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+*{  
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #fff; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 116, 23, 0.80); 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:rgb(255, 116, 23);
+    color: #9f4205;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-bar ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.nav-bar li{
+    list-style: none;
+    margin: 0 1rem;
+}
+.menu-bar ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.menu-bar li{
+    list-style: none;
+    margin: 0 1rem;
+}
+.menu-bar li a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    padding: 1rem;
+    display: block;
+}
+.menu-bar li:hover{
+    background-color: #ffc01f;
+    color: #fff;
+    border-radius: 15px ;
+}
+
+.hamburger{
+  position: absolute;
+  top: 2.4rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.hamburger .bar{
+  height: 3px;
+  width: 100%;
+  background-color: var(--color3);
+  border-radius: 10px;
+  transition: 200ms transform ease-in;
+}
+.title{
+    text-align: center;
+    font-size: 5rem;
+    padding-top: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.search-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    height: 3rem;
+    background: beige;
+    border-radius: 2rem;
+    color: #9f4205;
+    padding-right: 10px;
+} 
+
+#search{
+    margin: 0 0.5rem 0 0.5rem;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: beige;
+    color: #9f4205;
+}
+
+#search::placeholder{
+    color: #9f4205;
+    font-size: 1rem;
+    opacity: 0.7;
+}
+.fa{
+    color:rgba(255, 116, 23, 0.80) ;
+}
+.fa:hover{
+    color: #9f4205;
+}
+
+.result{
+    text-align: center;
+  }
+  .result h1{
+    color: #333;
+  }
+
+.hidden {
+  display: none;
+}
+
+#none{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ff0505;
+    text-align: center;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+    margin-top: 70px;
+    max-width: 1500px;
+    position: relative;
+    border-color: #9f4205;
+    border-width: 10px;
+}
+
+  /* Hide the images by default */
+.mySlides {
+    display: none;
+  }
+  
+  /* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    width: 100%;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin-top: -50px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    position: relative;     
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  .tulisan {
+    display: flex;
+    align-items: center; /* Vertically center the items */
+    /*      Optional: If you want to space them out */
+    justify-content: space-between;
+    width: 100%; /* Ensure it takes full width */
+    padding: 1rem; 
+}
+
+.tulisan h2, .tulisan a {
+    margin: 0; /* Remove default margin */
+    color: black; /* Apply color */
+}   
+
+.card-grid, .food-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 5px;
+    padding-top: 1rem;
+    justify-content: center;
+    overflow: auto;
+    min-height: 100%;
+    padding-bottom: 100px;
+    text-align: center;
+  }
+  
+  .card {
+    --padding: 1rem;
+    background: rgba(255, 116, 23, 0.80);
+    border: 1px solid #777;
+    border-radius: .25rem;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+  }
+  
+  .card.card-shadow {
+    border: none;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, .79);
+    max-width: 700px;
+    max-height: 350px;
+  }
+  
+  .card-header {
+    font-size: 1.5rem;
+    padding: var(--padding);
+    padding-bottom: 0;
+    margin-bottom: .5rem;
+  }
+  
+  .card-header.card-image {
+    padding: 0;
+    overflow: hidden;
+  }
+    
+  .card-header.card-image > img {
+    display: block;
+    width: 100%;
+    max-height: 200px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+    transition: 200ms transform ease-in-out;
+    z-index: 1; /* Pastikan gambar dalam card memiliki z-index lebih rendah */
+    position: relative;
+  }
+  
+  .card:hover > .card-header.card-image > img {
+    transform: scale(1.025);
+  }
+  
+  .card-body {
+    font-size: .9rem;
+    text-align: center;
+    padding: 0 var(--padding);
+  }
+  .card-body h3{
+    color: #fff;
+  }
+  
+  .card-footer {
+    margin-top: 1rem;
+    padding: var(--padding);
+    padding-top: 0;
+    text-align: center;
+    color: #333;
+  }
+  
+  .btn {
+    background: #ffc01f;
+    color:#333;
+    border: 2px solid rgba(255, 116, 23, 0.80);
+    font-size: 1rem;
+    padding: .5em .75em;
+    border-radius: .50em;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .btn:hover, .btn:focus {
+    transform: translateY(-3px);
+    background-color: transparent;
+     border: 2px solid #ffc01f;
+    color: #fff;
+  }
+
+  .mySlides a:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255, 116, 23, 0.80);
+     border: 2px solid #ffc01f;
+    color: #fff;
+  }
+
+
+  .card-grid2 {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    position: relative;
+}
+
+.food-list2 {
+    display: flex;
+}
+
+.card2 {
+    width: 350px; /* Adjust as needed */
+    background: rgba(255, 116, 23, 0.80);
+    border: 1px solid #777;
+    border-radius: .25rem;
+    overflow: hidden;
+    margin-bottom: 10px;
+    flex: 0 0 auto;
+}
+
+.card2-header {
+  font-size: 1.5rem;
+  padding: var(--padding);
+  padding-bottom: 0;
+  margin-bottom: .5rem;
+}
+
+.card2-header.card2-image {
+  padding: 0;
+  overflow: hidden;
+}
+  
+.card2-header.card2-image > img {
+  display: block;
+  width: 100%;
+  max-height: 200px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  transition: 200ms transform ease-in-out;
+}
+
+.card2:hover > .card2-header.card2-image > img {
+  transform: scale(1.025);
+}
+
+.card2.card2-shadow {
+  border: none;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, .79);
+  max-width: 700px;
+  max-height: 350px;
+}
+
+.card2-body {
+  font-size: .9rem;
+  text-align: center;
+  padding: 0 var(--padding);
+}
+.card2-body h3{
+  color: #000;
+}
+
+.card2-footer {
+  margin-top: 1rem;
+  padding: var(--padding);
+  padding-top: 0;
+  text-align: center;
+  color: #000;
+}
+
+.card-grid2 .fa-solid { 
+height: 50px; 
+width: 50px; 
+background: rgba(255, 192, 31,0.60);    
+text-align: center; 
+line-height: 50px; 
+border-radius: 50%; 
+cursor: pointer; 
+position: absolute; 
+top: 50%; 
+font-size: 1.25 rem; 
+transform: translateY(-50%); 
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23); 
+
+} 
+
+
+.card-grid2 i:hover {
+background-color: #ffc01f;
+}
+.card-grid2 i:first-child { 
+left: -22px; 
+
+} 
+
+.card-grid2 i:last-child { 
+right: -22px; 
+
+} 
+
+.card-grid2 .food-list2 { 
+display: grid; 
+grid-auto-flow: column; 
+grid-auto-columns: calc((100% / 3) - 10px); 
+gap: 12px; 
+overflow-x: auto; 
+scroll-snap-type: x mandatory; 
+scroll-behavior: smooth; 
+scrollbar-width: 0; 
+margin: 0 auto;
+} 
+
+.card-grid2::-webkit-scrollbar { 
+display: none; 
+} 
+
+.food-list2::-webkit-scrollbar { 
+display: none; 
+}
+.box2{
+display: flex;
+width: 90%;
+justify-content: center; /* Menengahkan secara horizontal */
+margin: 0 auto; 
+}
+
+
+
+  .footer{
+    background-color: rgb(255, 116, 23);
+    height: 180px;
+    margin-top: auto;
+    padding: 10px;
+    color: #fff;
+    clear: both;
+    overflow-x: hidden;
+  }
+  .social-btn{
+    margin-top: 12px;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 2rem;
+  }
+  .social-btn a{
+    color: rgb(255, 253, 253);
+  }
+  .quick-bar{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    font-size: 1rem;
+    padding-top:1rem ;
+  }
+  .quick-bar a{
+    color:#fff;
+    text-decoration: none;
+  }
+  .footer p{
+    text-align:center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 12px;
+  } 

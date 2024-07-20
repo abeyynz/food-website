@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" /> 
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color:rgba(255, 116, 23, 0.80);
+            color: #9f4205;
+            position: fixed;
+            top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+        }
+
+        nav ul{
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav li{
+            list-style: none;
+            margin: 0 1rem;
+        }
+        .favorite-list {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 200px;
+            z-index: 1000; /* Untuk memastikan daftar favorit muncul di atas elemen lain */
+            margin-top: 110px; /* Jarak horizontal dari sisi kiri tombol favorit */
+            width: 300px; /* Atur lebar daftar favorit sesuai kebutuhan */
+            height: 500px;
+            margin-left: 200px; /* Jarak horizontal dari tombol favorit */
+            transform: translate(-50%, -50%);
+            border-radius: 0 10px 10px 10px;
+        }
+
+    .card-grid2 {
+        display: flex;
+        overflow-x: auto; /* Enable horizontal scrolling */
+        position: relative;
+    }
+
+    .food-list2 {
+        display: flex;
+    }
+
+    .card2 {
+        width: 300px; /* Adjust as needed */
+        margin-right: 10px; /* Spacing between cards */
+        background: #FF7417;
+        --padding: 1rem;
+        border: 1px solid #777;
+        border-radius: .25rem;
+        overflow: hidden;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;flex: 0 0 auto;
+    }
+
+    .card2-header {
+      font-size: 1.5rem;
+      padding: var(--padding);
+      padding-bottom: 0;
+      margin-bottom: .5rem;
+    }
+    
+    .card2-header.card2-image {
+      padding: 0;
+      overflow: hidden;
+    }
+      
+    .card2-header.card2-image > img {
+      display: block;
+      width: 100%;
+      max-height: 200px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center;
+      transition: 200ms transform ease-in-out;
+    }
+    
+    .card2:hover > .card2-header.card2-image > img {
+      transform: scale(1.025);
+    }
+
+    .card2.card2-shadow {
+      border: none;
+      box-shadow: 0 4px 21px -12px rgba(0, 0, 0, .79);
+      max-width: 700px;
+      max-height: 350px;
+    }
+
+    .card2-body {
+      font-size: .9rem;
+      text-align: center;
+      padding: 0 var(--padding);
+    }
+    .card2-body h3{
+      color: var(--color3);
+    }
+    
+    .card2-footer {
+      margin-top: 1rem;
+      padding: var(--padding);
+      padding-top: 0;
+      text-align: center;
+      color: var(--color4);
+    }
+    
+    .btn {
+        background: #ffc01f;
+        color: var(--color4);
+        border: 2px solid #FF7417;
+        font-size: 1rem;
+        padding: .5em .75em;
+        border-radius: .50em;
+        cursor: pointer;
+        transition: all 300ms ease-in-out;
+    }
+    
+    .btn:hover, .btn:focus {
+        transform: translateY(-3px);
+        background-color: transparent;
+        border: 2px solid #ffc01f;
+        color: var(--color3);
+    }
+  
+.card-grid2 .fa-solid { 
+    height: 50px; 
+    width: 50px; 
+    background: rgba(255, 192, 31,0.60);    
+    text-align: center; 
+    line-height: 50px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    position: absolute; 
+    top: 50%; 
+    font-size: 1.25 rem; 
+    transform: translateY(-50%); 
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23); 
+  
+} 
+  
+
+.card-grid2 i:hover {
+    background-color: #ffc01f;
+}
+.card-grid2 i:first-child { 
+    left: -22px; 
+  
+} 
+  
+.card-grid2 i:last-child { 
+    right: -22px; 
+  
+} 
+  
+.card-grid2 .food-list2 { 
+    display: grid; 
+    grid-auto-flow: column; 
+    grid-auto-columns: calc((100% / 3) - 10px); 
+    gap: 12px; 
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth; 
+    scrollbar-width: 0; 
+    margin: 0 auto;
+} 
+  
+.card-grid2::-webkit-scrollbar { 
+    display: none; 
+} 
+
+.food-list2::-webkit-scrollbar { 
+    display: none; 
+}
+.box2{
+    display: flex;
+    width: 80%;
+    justify-content: center; /* Menengahkan secara horizontal */
+    margin: 0 auto; 
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-content h3 {
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <!-- Tambahkan tombol favorite di sini -->
+                <li class="favorite-btn">
+                    <button class="fav-btn" onclick="toggleFavoriteList()">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div id="favoriteList" class="favorite-list hidden">
+        <ul id="favoriteItems"></ul>
+    </div>
+    <div class="box2" style="margin-top: 70px;">
+        <div class="card-grid2">
+            <i id="left" class="fa-solid  fas fa-angle-left"></i> 
+            <div class="food-list2" id="food-list2">
+                <a href="https://www.serbakuis.com/lomba-masak-belantara-berhadiah-modal-usaha-hingga-100-juta/" style="text-decoration: none;">
+                    <div class="card2 card2-shadow" style="line-height: 0.5; color: #000;;">
+                        <div class="card2-header card2-image">
+                            <img src="img/Sisig.webp">
+                        </div>
+                        <div class="card2-body">
+                            <h3 class="btn" style="margin:auto 40px; margin-top: 10px;"> Belantara Challenge</h3>
+                        </div>
+                        <div class="card2-footer">
+                            <p style="color: #000;">Lomba Memasak</p>
+                            <h4>Deadline : 19 Mei 2024</h4>                    
+                        </div>
+                    </div>
+                </a>
+
+                
+                <a href="https://www.serbakuis.com/lomba-masak-belantara-berhadiah-modal-usaha-hingga-100-juta/" style="text-decoration: none;">
+                    <div class="card2 card2-shadow" style="line-height: 0.5; color: #000;;">
+                        <div class="card2-header card2-image">
+                            <img src="img/Sisig.webp">
+                        </div>
+                        <div class="card2-body">
+                            <h3 class="btn" style="margin:auto 40px; margin-top: 10px;"> Belantara Challenge</h3>
+                        </div>
+                        <div class="card2-footer">
+                            <p style="color: #000;">Lomba Memasak</p>
+                            <h4>Deadline : 19 Mei 2024</h4>                    
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.serbakuis.com/lomba-masak-belantara-berhadiah-modal-usaha-hingga-100-juta/" style="text-decoration: none;">
+                    <div class="card2 card2-shadow" style="line-height: 0.5; color: #000;;">
+                        <div class="card2-header card2-image">
+                            <img src="img/Sisig.webp">
+                        </div>
+                        <div class="card2-body">
+                            <h3 class="btn" style="margin:auto 40px; margin-top: 10px;"> Belantara Challenge</h3>
+                        </div>
+                        <div class="card2-footer">
+                            <p style="color: #000;">Lomba Memasak</p>
+                            <h4>Deadline : 19 Mei 2024</h4>                    
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.serbakuis.com/lomba-masak-belantara-berhadiah-modal-usaha-hingga-100-juta/" style="text-decoration: none;">
+                    <div class="card2 card2-shadow" style="line-height: 0.5; color: #000;;">
+                        <div class="card2-header card2-image">
+                            <img src="img/Sisig.webp">
+                        </div>
+                        <div class="card2-body">
+                            <h3 class="btn" style="margin:auto 40px; margin-top: 10px;"> Belantara Challenge</h3>
+                        </div>
+                        <div class="card2-footer">
+                            <p style="color: #000;">Lomba Memasak</p>
+                            <h4>Deadline : 19 Mei 2024</h4>                    
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.serbakuis.com/lomba-masak-belantara-berhadiah-modal-usaha-hingga-100-juta/" style="text-decoration: none;">
+                    <div class="card2 card2-shadow" style="line-height: 0.5; color: #000;;">
+                        <div class="card2-header card2-image">
+                            <img src="img/Sisig.webp">
+                        </div>
+                        <div class="card2-body">
+                            <h3 class="btn" style="margin:auto 40px; margin-top: 10px;"> Belantara Challenge</h3>
+                        </div>
+                        <div class="card2-footer">
+                            <p style="color: #000;">Lomba Memasak</p>
+                            <h4>Deadline : 19 Mei 2024</h4>                    
+                        </div>
+                    </div>
+                </a>
+                <a href="https://www.serbakuis.com/lomba-masak-belantara-berhadiah-modal-usaha-hingga-100-juta/" style="text-decoration: none;">
+                    <div class="card2 card2-shadow" style="line-height: 0.5; color: #000;;">
+                        <div class="card2-header card2-image">
+                            <img src="img/Sisig.webp">
+                        </div>
+                        <div class="card2-body">
+                            <h3 class="btn" style="margin:auto 40px; margin-top: 10px;"> Belantara Challenge</h3>
+                        </div>
+                        <div class="card2-footer">
+                            <p style="color: #000;">Lomba Memasak</p>
+                            <h4>Deadline : 19 Mei 2024</h4>                    
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <i id="right" class="fa-solid fas fa-angle-right"></i> 
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            <form action="send_email.php" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </footer>
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() { 
+    const foodlist = document.querySelector(".food-list2"); 
+    const arrowBtns = document.querySelectorAll(".card-grid2 .fa-solid"); 
+
+    let cardWidth = foodlist.querySelector(".card2").offsetWidth; 
+    let maxScrollLeft = foodlist.scrollWidth - foodlist.clientWidth;
+
+    arrowBtns.forEach(btn => { 
+        btn.addEventListener("click", () => { 
+            let scrollAmount = btn.id === "left" ? -cardWidth : cardWidth;
+            // Add an extra 5 pixels when clicking left or right
+            scrollAmount += btn.id === "left" ? -38 : 38;
+            foodlist.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            updateArrowVisibility();
+        }); 
+    }); 
+    function updateArrowVisibility() {
+        if (foodlist.scrollLeft === 0) {
+            document.getElementById("left").style.display = "none";
+        } else {
+            document.getElementById("left").style.display = "block";
+        }
+        if (foodlist.scrollLeft >= maxScrollLeft) {
+            document.getElementById("right").style.display = "none";
+        } else {
+            document.getElementById("right").style.display = "block";
+        }
+    }
+
+    updateArrowVisibility(); // Initial check
+});
+// Fungsi untuk menambahkan atau menghapus item favorit
+function toggleFavorite(btn) {
+    const card2 = btn.closest('.card2');
+    const recipeName = card2.querySelector('h3').textContent;
+    const isFavorite = btn.classList.contains('active'); // Cek apakah sudah favorit atau belum
+
+    if (isFavorite) {
+        removeFromFavorites(recipeName);
+        btn.classList.remove('active');
+    } else {
+        addToFavorites(recipeName);
+        btn.classList.add('active');
+    }
+}
+
+// Fungsi untuk menambahkan item ke favorit
+function addToFavorites(recipeName) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites.push(recipeName);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoriteList();
+}
+
+// Fungsi untuk menghapus item dari favorit
+function removeFromFavorites(recipeName) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites = favorites.filter(item => item !== recipeName);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoriteList();
+}
+// Fungsi untuk menampilkan atau menyembunyikan daftar favorit
+function toggleFavoriteList() {
+    const favoriteList = document.getElementById('favoriteList');
+    favoriteList.classList.toggle('hidden'); // Toggle class 'hidden' untuk menampilkan/sembunyikan daftar
+
+    if (!favoriteList.classList.contains('hidden')) {
+        updateFavoriteItems();
+    }
+}
+// Fungsi untuk menampilkan daftar item favorit
+function updateFavoriteItems() {
+    const favoriteItems = document.getElementById('favoriteItems');
+    favoriteItems.innerHTML = ''; // Kosongkan konten sebelum menampilkan ulang
+
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        favoriteItems.appendChild(listItem);
+    });
+}
+
+// Fungsi untuk menampilkan daftar favorit
+function updateFavoriteList() {
+    const favoriteList = document.getElementById('favoriteList');
+    favoriteList.innerHTML = ''; // Kosongkan konten sebelum menampilkan ulang
+
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        favoriteList.appendChild(listItem);
+    });
+}
+
+
+// Panggil fungsi updateFavoriteList() untuk menampilkan daftar favorit saat halaman dimuat
+updateFavoriteList();
+// Panggil fungsi updateFavoriteItems() saat halaman dimuat untuk menampilkan daftar favorit awal
+updateFavoriteItems();
+
+  // Mendapatkan semua tombol "Get Recipe"
+  var recipeButtons = document.querySelectorAll('.get-recipe-btn');
+
+  // Menambahkan event listener untuk setiap tombol
+  recipeButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      // Mendapatkan atribut data-resep dari tombol yang diklik
+      var resep = button.getAttribute('data-resep');
+
+      // Mengarahkan pengguna ke halaman resep yang sesuai dengan tombol yang diklik
+      window.location.href = 'halaman-resep.html?resep=' + resep;
+    });
+  });
+
+
+</script>
+</body>
+</html>
